@@ -12,3 +12,5 @@ Using the following open source projects:
     SuiteSparse:                    http://www.cise.ufl.edu/research/sparse/SuiteSparse/
     suitesparse-metis-for-windows:  https://github.com/jlblancoc/suitesparse-metis-for-windows
     Ceres:                          https://code.google.com/p/ceres-solver/
+    
+On windows you need to have Git for Windows installed in C:/Program Files(x86)/Git because patch is needed for this build system.
