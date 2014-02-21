@@ -1,0 +1,15 @@
+--- CMakeLists.txt	Wed Feb 19 14:12:18 2014
++++ CMakeLists_orig.txt	Wed Feb 19 14:13:21 2014
+@@ -21,11 +21,9 @@
+ mark_as_advanced(LIB_POSTFIX)
+ 
+ # We want libraries to be named "libXXX" and "libXXXd" in all compilers:
++# No, we don't, since windows naming conventions state otherwise: http://msdn.microsoft.com/en-us/library/w4zd66ye.aspx
+ # ------------------------------------------------------------------------
+ set(CMAKE_DEBUG_POSTFIX  "d")
+-IF(MSVC)
+-	set(SP_LIB_PREFIX "lib")  # Libs are: "libXXX"
+-ENDIF(MSVC)
+ 
+ ## check if we can build metis	
+ SET(BUILD_METIS_DEFAULT ON)	

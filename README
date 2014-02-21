@@ -1,0 +1,14 @@
+Fraunhofer IGD Andreas Franek 2014.02.17
+
+Multi-platform build system for building ceres from scratch.
+Works on:                   Dependencies
+    Linux                   BLAS, LAPACK
+    Windows (partly)        Git
+    Mac OSX (untested)      BLAS, LAPACK
+
+Using the following open source projects:
+    eigen:                          http://eigen.tuxfamily.org/
+    Metis:                          http://glaros.dtc.umn.edu/gkhome/metis/metis/changes
+    SuiteSparse:                    http://www.cise.ufl.edu/research/sparse/SuiteSparse/
+    suitesparse-metis-for-windows:  https://github.com/jlblancoc/suitesparse-metis-for-windows
+    Ceres:                          https://code.google.com/p/ceres-solver/
