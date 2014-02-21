@@ -14,3 +14,4 @@ Using the following open source projects:
     Ceres:                          https://code.google.com/p/ceres-solver/
     
 On windows you need to have Git for Windows installed because patch is needed for this build system. The script will search for the Git patch command in C:/Program Files/Git/bin and C:/Program Files(x86)/Git/bin . If you have installed Git anywhere else or want to use another patch command, please make MP_PATCH in cmake point to that patch command.
+Also note, that, on windows, only Release builds will work (the ceres cmake system will not find the SuiteSparse Debug libs yet).
