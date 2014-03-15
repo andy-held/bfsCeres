@@ -30,7 +30,7 @@ cmake .. # or 'cmake-gui' if you want to change build settings
 make
 ```
 ####Windows
-* Install 'Git for Windows' and 'CMake'
+* Install [Git for Windows](http://msysgit.github.io/) and [CMake](http://www.cmake.org/)
 * clone this project
 * create a 'build' folder in the bfsCeres directory
 * execute CMake in the build directory, setting your Visual Studio version
