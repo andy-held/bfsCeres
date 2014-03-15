@@ -1,5 +1,3 @@
-set(ceres_source "${CMAKE_CURRENT_BINARY_DIR}/ceres")
-
 if(WIN32)
 	set(CERES_DEFINES 
         "-DBLAS_goto2_LIBRARY:FILEPATH=${bfsCeres_INSTALL_PREFIX}/lib/lapack_blas_windows/libblas.lib"
@@ -14,7 +12,6 @@ endif(WIN32)
 
 ExternalProject_Add(ceres
     DOWNLOAD_DIR ${download_dir}
-    SOURCE_DIR ${ceres_source}
     URL ${ceres_url}
     URL_MD5 ${ceres_md5}
     CMAKE_CACHE_ARGS 
