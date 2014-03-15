@@ -8,7 +8,7 @@ Andreas Franek 2014.02.17
 | System    | Dependencies          | Status |
 |-----------|-----------------------|--------|
 | Linux     | BLAS, LAPACK, CMake   | Working |
-| Windows   | Git, CMake            | (see [Windows specifics](#windows specifics)) |
+| Windows   | Git, CMake            | (see [Windows specifics](#windows-specifics)) |
 | Mac OSX   | BLAS, LAPACK, CMake   | Untested |
 
 Using the following open source projects:
