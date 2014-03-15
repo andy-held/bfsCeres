@@ -4,7 +4,7 @@ set(sscmake_patch_commands
         
 if(WIN32)
     set(sscmake_patch_commands ${sscmake_patch_commands} &&
-        ${MP_PATCH} -p0 -t -N < "${bfsCeres_PATCH_DIR}/sscmake.patch" &&)
+        ${MP_PATCH} -p0 -t -N < "${bfsCeres_PATCH_DIR}/sscmake.patch")
 endif(WIN32)
 
 ExternalProject_Add(sscmake
