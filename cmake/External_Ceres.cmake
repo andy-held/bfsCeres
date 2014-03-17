@@ -11,9 +11,7 @@ else(WIN32)
 endif(WIN32)
 
 ExternalProject_Add(ceres
-    DOWNLOAD_DIR ${download_dir}
-    URL ${ceres_url}
-    URL_MD5 ${ceres_md5}
+    GIT_REPOSITORY ${ceres_url}
     CMAKE_CACHE_ARGS 
         ${bfsCeres_DEFAULT_ARGS}
         "-DMINIGLOG:BOOL=ON"
@@ -21,5 +19,7 @@ ExternalProject_Add(ceres
         "-DSUITESPARSE_INCLUDE_DIR_HINTS:PATH=${SuiteSparse_INCLUDE_DIR}"
         "-DSUITESPARSE_LIBRARY_DIR_HINTS:PATH=${SuiteSparse_LIBRARY_DIR}"
 		"-DEIGEN_INCLUDE_DIR:PATH=${eigen_INCLUDE_DIR}"
+		"-DGFLAGS_INCLUDE_HINTS:PATH=${Gflags_INCLUDE_DIR}"
+		"-DGFLAGS_LIBRARY_HINTS:PATH=${Gflags_LIBRARY_DIR}"
         ${CERES_DEFINES}
-    DEPENDS sscmake eigen)
+    DEPENDS Gflags sscmake eigen)

@@ -18,11 +18,13 @@ set(SuiteSparse_md5 "4628df9eeae10ae5f0c486f1ac982fce")
 
 list(APPEND projects sscmake)
 set(sscmake_version "1.1.0")
-set(sscmake_url https://github.com/jlblancoc/suitesparse-metis-for-windows/releases/download/v${sscmake_version}/suitesparse-metis-for-windows-${sscmake_version}.tar.gz)
-set(sscmake_md5 d5426f450d1310e5bf42482ba5774eec)
+set(sscmake_url "https://github.com/jlblancoc/suitesparse-metis-for-windows/releases/download/v${sscmake_version}/suitesparse-metis-for-windows-${sscmake_version}.tar.gz")
+set(sscmake_md5 "d5426f450d1310e5bf42482ba5774eec")
+
+list(APPEND projects Gflags)
+set(Gflags_url "https://github.com/schuhschuh/gflags.git")
+set(Gflags_git_tag "cmake-migration")
 
 list(APPEND projects ceres)
-set(ceres_version "1.8.0")
-set(ceres_url http://ceres-solver.googlecode.com/files/ceres-solver-${ceres_version}.tar.gz)
-set(ceres_md5 bb23731db88b789476b615ff5b850837)
+set(ceres_url "https://ceres-solver.googlesource.com/ceres-solver/")
 
