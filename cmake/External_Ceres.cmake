@@ -12,6 +12,8 @@ endif(WIN32)
 
 ExternalProject_Add(ceres
     GIT_REPOSITORY ${ceres_url}
+    PATCH_COMMAND 
+        ${MP_PATCH} -p1 -t -N < "${bfsCeres_PATCH_DIR}/ceres.patch"
     CMAKE_CACHE_ARGS 
         ${bfsCeres_DEFAULT_ARGS}
         "-DMINIGLOG:BOOL=ON"

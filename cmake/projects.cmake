@@ -22,8 +22,13 @@ set(sscmake_url "https://github.com/jlblancoc/suitesparse-metis-for-windows/rele
 set(sscmake_md5 "d5426f450d1310e5bf42482ba5774eec")
 
 list(APPEND projects Gflags)
-set(Gflags_url "https://github.com/schuhschuh/gflags.git")
+set(Gflags_url "https://github.com/andy-held/gflags.git")
 set(Gflags_git_tag "cmake-migration")
+
+list(APPEND projects glog)
+set(glog_version "0.3.3")
+set(glog_url "https://google-glog.googlecode.com/files/glog-0.3.3.tar.gz")
+set(glog_md5 "a6fd2c22f8996846e34c763422717c18")
 
 list(APPEND projects ceres)
 set(ceres_url "https://ceres-solver.googlesource.com/ceres-solver/")

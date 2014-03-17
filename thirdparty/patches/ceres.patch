@@ -1,0 +1,137 @@
+diff -rup -x .git ceres-solver/examples/bundle_adjuster.cc bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/bundle_adjuster.cc
+--- ceres-solver/examples/bundle_adjuster.cc	2014-03-17 08:52:44.067068595 +0100
++++ bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/bundle_adjuster.cc	2014-03-15 16:35:38.016037608 +0100
+@@ -336,7 +336,11 @@ void SolveProblem(const char* filename)
+ }  // namespace ceres
+ 
+ int main(int argc, char** argv) {
+-  google::ParseCommandLineFlags(&argc, &argv, true);
++{
++  using namespace gflags;
++  using namespace google;
++  ParseCommandLineFlags(&argc, &argv, true);
++}
+   google::InitGoogleLogging(argv[0]);
+   if (FLAGS_input.empty()) {
+     LOG(ERROR) << "Usage: bundle_adjustment_example --input=bal_problem";
+Only in bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples: bundle_adjuster.cc~
+diff -rup -x .git ceres-solver/examples/circle_fit.cc bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/circle_fit.cc
+--- ceres-solver/examples/circle_fit.cc	2014-03-17 08:52:44.067068595 +0100
++++ bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/circle_fit.cc	2014-03-15 16:35:52.516037824 +0100
+@@ -107,7 +107,11 @@ class DistanceFromCircleCost {
+ };
+ 
+ int main(int argc, char** argv) {
+-  google::ParseCommandLineFlags(&argc, &argv, true);
++{
++  using namespace gflags;
++  using namespace google;
++  ParseCommandLineFlags(&argc, &argv, true);
++}
+   google::InitGoogleLogging(argv[0]);
+ 
+   double x, y, r;
+Only in bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples: circle_fit.cc~
+diff -rup -x .git ceres-solver/examples/denoising.cc bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/denoising.cc
+--- ceres-solver/examples/denoising.cc	2014-03-17 08:52:44.067068595 +0100
++++ bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/denoising.cc	2014-03-15 16:34:58.336037016 +0100
+@@ -176,8 +176,12 @@ int main(int argc, char** argv) {
+       usage("This program denoises an image using Ceres.  Sample usage:\n");
+   usage += argv[0];
+   usage += " --input=<noisy image PGM file> --foe_file=<FoE file name>";
+-  google::SetUsageMessage(usage);
+-  google::ParseCommandLineFlags(&argc, &argv, true);
++{
++  using namespace gflags;
++  using namespace google;
++  SetUsageMessage(usage);
++  ParseCommandLineFlags(&argc, &argv, true);
++}
+   google::InitGoogleLogging(argv[0]);
+ 
+   if (FLAGS_input.empty()) {
+Only in bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples: denoising.cc~
+diff -rup -x .git ceres-solver/examples/libmv_bundle_adjuster.cc bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/libmv_bundle_adjuster.cc
+--- ceres-solver/examples/libmv_bundle_adjuster.cc	2014-03-17 08:52:44.067068595 +0100
++++ bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/libmv_bundle_adjuster.cc	2014-03-15 16:38:35.948040261 +0100
+@@ -779,7 +779,11 @@ void EuclideanBundleCommonIntrinsics(con
+ }  // namespace
+ 
+ int main(int argc, char **argv) {
+-  google::ParseCommandLineFlags(&argc, &argv, true);
++{
++  using namespace gflags;
++  using namespace google;
++  ParseCommandLineFlags(&argc, &argv, true);
++}
+   google::InitGoogleLogging(argv[0]);
+ 
+   if (FLAGS_input.empty()) {
+Only in bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples: libmv_bundle_adjuster.cc~
+diff -rup -x .git ceres-solver/examples/more_garbow_hillstrom.cc bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/more_garbow_hillstrom.cc
+--- ceres-solver/examples/more_garbow_hillstrom.cc	2014-03-17 08:52:44.067068595 +0100
++++ bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/more_garbow_hillstrom.cc	2014-03-15 16:36:45.512038614 +0100
+@@ -337,7 +337,11 @@ template<typename TestProblem> string Un
+ }  // namespace ceres
+ 
+ int main(int argc, char** argv) {
+-  google::ParseCommandLineFlags(&argc, &argv, true);
++{
++  using namespace gflags;
++  using namespace google;
++  ParseCommandLineFlags(&argc, &argv, true);
++}
+   google::InitGoogleLogging(argv[0]);
+ 
+   using ceres::examples::UnconstrainedSolve;
+Only in bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples: more_garbow_hillstrom.cc~
+diff -rup -x .git ceres-solver/examples/nist.cc bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/nist.cc
+--- ceres-solver/examples/nist.cc	2014-03-17 08:52:44.067068595 +0100
++++ bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/nist.cc	2014-03-15 16:37:19.572039122 +0100
+@@ -566,7 +566,11 @@ void SolveNISTProblems() {
+ }  // namespace ceres
+ 
+ int main(int argc, char** argv) {
+-  google::ParseCommandLineFlags(&argc, &argv, true);
++{
++  using namespace gflags;
++  using namespace google;
++  ParseCommandLineFlags(&argc, &argv, true);
++}
+   google::InitGoogleLogging(argv[0]);
+   ceres::examples::SolveNISTProblems();
+   return 0;
+Only in bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples: nist.cc~
+diff -rup -x .git ceres-solver/examples/powell.cc bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/powell.cc
+--- ceres-solver/examples/powell.cc	2014-03-17 08:52:44.067068595 +0100
++++ bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples/powell.cc	2014-03-15 16:37:52.564039614 +0100
+@@ -99,7 +99,11 @@ DEFINE_string(minimizer, "trust_region",
+               "Minimizer type to use, choices are: line_search & trust_region");
+ 
+ int main(int argc, char** argv) {
+-  google::ParseCommandLineFlags(&argc, &argv, true);
++{
++  using namespace gflags;
++  using namespace google;
++  ParseCommandLineFlags(&argc, &argv, true);
++}
+   google::InitGoogleLogging(argv[0]);
+ 
+   double x1 =  3.0;
+Only in bfsCeres/build/thirdparty/ceres-prefix/src/ceres/examples: powell.cc~
+diff -rup -x .git ceres-solver/internal/ceres/gmock_main.cc bfsCeres/build/thirdparty/ceres-prefix/src/ceres/internal/ceres/gmock_main.cc
+--- ceres-solver/internal/ceres/gmock_main.cc	2014-03-17 08:52:44.119068594 +0100
++++ bfsCeres/build/thirdparty/ceres-prefix/src/ceres/internal/ceres/gmock_main.cc	2014-03-15 17:22:58.156079952 +0100
+@@ -63,6 +63,10 @@ int main(int argc, char** argv) {
+   // gflags, InitGoogleTest() (called by InitGoogleMock()) must be called
+   // before ParseCommandLineFlags() to handle & remove them before gflags
+   // parses the remaining flags.
+-  google::ParseCommandLineFlags(&argc, &argv, true);
++{
++  using namespace gflags;
++  using namespace google;
++  ParseCommandLineFlags(&argc, &argv, true);
++}
+   return RUN_ALL_TESTS();
+ }
+Only in bfsCeres/build/thirdparty/ceres-prefix/src/ceres/internal/ceres: gmock_main.cc~
