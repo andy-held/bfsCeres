@@ -3,6 +3,7 @@ option(USE_SYSTEM_METIS "Should we use the system metis?" OFF)
 option(USE_SYSTEM_SUITESPARSE "Should we use the system Suitesparse?" OFF)
 option(USE_SYSTEM_EIGEN "Should we use the system Eigen?" OFF)
 option(USE_SYSTEM_GFLAGS "Should we use the system Eigen?" OFF)
+option(USE_SYSTEM_GLOG "Should we use the system Eigen?" OFF)
 
 if(USE_SYSTEM_EIGEN)
   find_package(Eigen3 REQUIRED)
@@ -30,6 +31,15 @@ if(USE_SYSTEM_GFLAGS)
     "-DGflags_LIBRARY_DIR:PATH=${Gflags_LIBRARYDIR}")
 else()
   include(External_Gflags)
+endif()
+
+if(USE_SYSTEM_GLOG)
+  find_package(glog REQUIRED)
+  list(APPEND bfsCeres_THIRDPARTYLIBS_ARGS
+    "-Dglog_INCLUDE_DIR:PATH=${glogs_INCLUDE_DIR}"
+    "-Dglog_LIBRARY_DIR:PATH=${glog_LIBRARYDIR}")
+else()
+  include(External_glog)
 endif()
 
 if(USE_SYSTEM_CERES)

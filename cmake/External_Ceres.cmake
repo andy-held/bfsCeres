@@ -16,12 +16,13 @@ ExternalProject_Add(ceres
         ${MP_PATCH} -p1 -t -N < "${bfsCeres_PATCH_DIR}/ceres.patch"
     CMAKE_CACHE_ARGS 
         ${bfsCeres_DEFAULT_ARGS}
-        "-DMINIGLOG:BOOL=ON"
         "-DMETIS_FOUND:BOOL=ON"
         "-DSUITESPARSE_INCLUDE_DIR_HINTS:PATH=${SuiteSparse_INCLUDE_DIR}"
         "-DSUITESPARSE_LIBRARY_DIR_HINTS:PATH=${SuiteSparse_LIBRARY_DIR}"
 		"-DEIGEN_INCLUDE_DIR:PATH=${eigen_INCLUDE_DIR}"
 		"-DGFLAGS_INCLUDE_HINTS:PATH=${Gflags_INCLUDE_DIR}"
 		"-DGFLAGS_LIBRARY_HINTS:PATH=${Gflags_LIBRARY_DIR}"
+        "-DGLOG_INCLUDE_DIR_HINTS:PATH=${glog_INCLUDE_DIR}"
+        "-DGLOG_LIBRARY_DIR_HINTS:PATH=${glog_LIBRARY_DIR}"
         ${CERES_DEFINES}
-    DEPENDS Gflags sscmake eigen)
+    DEPENDS glog Gflags sscmake eigen)
