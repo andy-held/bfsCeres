@@ -22,7 +22,7 @@ set(sscmake_url "https://github.com/jlblancoc/suitesparse-metis-for-windows/rele
 set(sscmake_md5 "d5426f450d1310e5bf42482ba5774eec")
 
 list(APPEND projects Gflags)
-set(Gflags_url "https://github.com/andy-held/gflags.git")
+set(Gflags_url "https://github.com/schuhschuh/gflags.git")
 set(Gflags_git_tag "cmake-migration")
 
 list(APPEND projects glog)
