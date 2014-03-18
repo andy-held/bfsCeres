@@ -18,7 +18,7 @@ include(ExternalProject)
 include(projects)
 include(setDownloadDir)
 set(bfsCeres_PATCH_DIR "${bfsCeres_SOURCE_DIR}/thirdparty/patches")
-option(BUILD_SHARED_LIBS "Should shared libs be built?" OFF)
+option(BUILD_SHARED_LIBS "Should shared libs be built?" ON)
 
 set(bfsCeres_INSTALL_PREFIX "${bfsCeres_BINARY_DIR}/install")
 set(bfsCeres_DEFAULT_ARGS
