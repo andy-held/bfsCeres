@@ -18,17 +18,22 @@ include(ExternalProject)
 include(projects)
 include(setDownloadDir)
 set(bfsCeres_PATCH_DIR "${bfsCeres_SOURCE_DIR}/thirdparty/patches")
+option(BUILD_SHARED_LIBS "Should shared libs be built?" OFF)
 
 set(bfsCeres_INSTALL_PREFIX "${bfsCeres_BINARY_DIR}/install")
 set(bfsCeres_DEFAULT_ARGS
-  "-DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}"
-  "-DCMAKE_PREFIX_PATH:PATH=${bfsCeres_INSTALL_PREFIX}"
-  "-DCMAKE_INSTALL_PREFIX:PATH=${bfsCeres_INSTALL_PREFIX}")
+    "-DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}"
+    "-DCMAKE_PREFIX_PATH:PATH=${bfsCeres_INSTALL_PREFIX}"
+    "-DCMAKE_INSTALL_PREFIX:PATH=${bfsCeres_INSTALL_PREFIX}")
  
 # If there is a CMAKE_BUILD_TYPE it is important to ensure it is passed down.
 if(CMAKE_BUILD_TYPE)
-  list(APPEND bfsCeres_DEFAULT_ARGS
-    "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}")
+    list(APPEND bfsCeres_DEFAULT_ARGS "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}")
+endif()
+
+if(${BUILD_SHARED_LIBS})
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
+    #list(APPEND bfsCeres_DEFAULT_ARGS "-DCMAKE_CXX_FLAGS:STRING=${CMAKE_CXX_FLAGS}")
 endif()
 
 add_subdirectory(thirdparty)

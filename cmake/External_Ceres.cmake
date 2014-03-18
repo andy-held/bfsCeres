@@ -10,11 +10,19 @@ else(WIN32)
 	"-DSUITESPARSE_CONFIG_LIBRARY:FILEPATH=${SuiteSparse_LIBRARY_DIR}/libSuiteSparse_config.a") # ceres FindSuiteSparse script buggy?
 endif(WIN32)
 
+if(${BUILD_SHARED_LIBS})
+    set(gflags_lib_name "libgflags_nothreads.so" CACHE INTERNAL "")
+    set(gflags_shouldbe_lib_name "libgflags.so" CACHE INTERNAL "")
+else()
+    set(gflags_lib_name "libgflags_nothreads.a" CACHE INTERNAL "")
+    set(gflags_shouldbe_lib_name "libgflags.a" CACHE INTERNAL "")
+endif()
+
 ExternalProject_Add(ceres
     GIT_REPOSITORY ${ceres_url}
     PATCH_COMMAND
-        ${CMAKE_COMMAND} -E copy_directory ${Gflags_INCLUDE_DIR}/google ${Gflags_INCLUDE_DIR}/gflags #to compensate the nameing of gflags according to its namespace
-        ${CMAKE_COMMAND} -E copy ${Gflags_LIBRARY_DIR}/libgflags_nothreads.a ${Gflags_LIBRARY_DIR}/libgflags.a # only necessary right now, until the gflags-cmake branch is fixed
+        ${CMAKE_COMMAND} -E copy_directory ${Gflags_INCLUDE_DIR}/google ${Gflags_INCLUDE_DIR}/gflags &&
+        ${CMAKE_COMMAND} -E copy_if_different ${Gflags_LIBRARY_DIR}/${gflags_lib_name} ${Gflags_LIBRARY_DIR}/${gflags_shouldbe_lib_name}
     CMAKE_CACHE_ARGS 
         ${bfsCeres_DEFAULT_ARGS}
         "-DMETIS_FOUND:BOOL=ON"

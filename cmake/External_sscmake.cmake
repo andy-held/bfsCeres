@@ -7,6 +7,10 @@ if(WIN32)
         ${MP_PATCH} -p0 -t -N < "${bfsCeres_PATCH_DIR}/sscmake.patch")
 endif(WIN32)
 
+if(${BUILD_SHARED_LIBS})
+    set(sscmake_shared_arg "-DSHARED:BOOL=ON" CACHE INTERNAL "")
+endif()
+
 ExternalProject_Add(sscmake
     DOWNLOAD_DIR ${download_dir}
     URL ${sscmake_url}
@@ -15,6 +19,7 @@ ExternalProject_Add(sscmake
 		${sscmake_patch_commands}
     CMAKE_CACHE_ARGS
         ${bfsCeres_DEFAULT_ARGS}
+        ${sscmake_shared_arg}
         "-DGKLIB_PATH:PATH=<SOURCE_DIR>/metis/GKlib"
         "-DLIB_POSTFIX:STRING="
     DEPENDS metis SuiteSparse)
