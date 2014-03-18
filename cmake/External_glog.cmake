@@ -1,7 +1,8 @@
 if(WIN32)
 else(WIN32)
     set(glog_configure_cmd <SOURCE_DIR>/configure
-    --prefix=${bfsCeres_INSTALL_PREFIX} CACHE INTERNAL "")
+    --prefix=${bfsCeres_INSTALL_PREFIX}
+    --with-gflags=${bfsCeres_INSTALL_PREFIX} CACHE INTERNAL "")
     set(glog_build_cmd make CACHE INTERNAL "")
     set(glog_install_cmd make install CACHE INTERNAL "")
 endif(WIN32)
@@ -15,7 +16,8 @@ ExternalProject_Add(glog
     BUILD_COMMAND ${glog_build_cmd}
     INSTALL_COMMAND ${glog_install_cmd}
     CMAKE_CACHE_ARGS
-        ${bfsCeres_DEFAULT_ARGS})
+        ${bfsCeres_DEFAULT_ARGS}
+    DEPENDS Gflags)
         
 set(glog_INCLUDE_DIR ${bfsCeres_INSTALL_PREFIX}/include/glog)
 set(glog_LIBRARY_DIR ${bfsCeres_INSTALL_PREFIX}/lib)
