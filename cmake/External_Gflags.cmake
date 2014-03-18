@@ -17,5 +17,5 @@ ExternalProject_Add(Gflags
         ${Gflags_cmake_args}
     )
     
-set(Gflags_INCLUDE_DIR ${bfsCeres_INSTALL_PREFIX}/include/gflags)
+set(Gflags_INCLUDE_DIR ${bfsCeres_INSTALL_PREFIX}/include)
 set(Gflags_LIBRARY_DIR ${bfsCeres_INSTALL_PREFIX}/lib)

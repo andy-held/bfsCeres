@@ -12,6 +12,9 @@ endif(WIN32)
 
 ExternalProject_Add(ceres
     GIT_REPOSITORY ${ceres_url}
+    PATCH_COMMAND
+        ${CMAKE_COMMAND} -E copy_directory ${Gflags_INCLUDE_DIR}/google ${Gflags_INCLUDE_DIR}/gflags #to compensate the nameing of gflags according to its namespace
+        ${CMAKE_COMMAND} -E copy ${Gflags_LIBRARY_DIR}/libgflags_nothreads.a ${Gflags_LIBRARY_DIR}/libgflags.a # only necessary right now, until the gflags-cmake branch is fixed
     CMAKE_CACHE_ARGS 
         ${bfsCeres_DEFAULT_ARGS}
         "-DMETIS_FOUND:BOOL=ON"
