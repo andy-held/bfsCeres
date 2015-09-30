@@ -13,7 +13,7 @@ set(metis_md5 "6daba5e64ed86d46e038437eda720532")
 
 list(APPEND projects SuiteSparse)
 set(SuiteSparse_version "4.2.1")
-set(SuiteSparse_url "http://www.cise.ufl.edu/research/sparse/SuiteSparse/SuiteSparse-${SuiteSparse_version}.tar.gz")
+set(SuiteSparse_url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/SuiteSparse-${SuiteSparse_version}.tar.gz")
 set(SuiteSparse_md5 "4628df9eeae10ae5f0c486f1ac982fce")
 
 list(APPEND projects sscmake)
